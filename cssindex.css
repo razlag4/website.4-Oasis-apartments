@@ -198,3 +198,110 @@ body {
   color: #999;
   font-size: 0.9rem;
 }
+
+@media (max-width: 1024px) {
+  #logo {
+    height: 140px;
+  }
+
+  #nav {
+    gap: 2rem;
+  }
+
+  #hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .lifestyle-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .lifestyle-text,
+  .lifestyle-gallery {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .lifestyle-gallery .swiper {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    height: 4rem;
+    padding: 0 1rem;
+  }
+
+  #logo {
+    height: 80px;
+  }
+
+  #nav {
+    display: none;
+  }
+
+  #hero h1 {
+    font-size: 2.2rem;
+    padding: 0 1rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  .lifestyle-text h2 {
+    font-size: 2rem;
+  }
+
+  .lifestyle-text p {
+    font-size: 1rem;
+  }
+
+  .lifestyle-gallery .swiper {
+    height: 40vh;
+  }
+
+  #footer {
+    font-size: 0.8rem;
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  #logo {
+    height: 60px;
+  }
+
+  #hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .lifestyle-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .lifestyle-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .lifestyle-gallery .swiper {
+    height: 35vh;
+  }
+
+  #footer {
+    font-size: 0.75rem;
+  }
+}
