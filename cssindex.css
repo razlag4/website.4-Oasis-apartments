@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nata Sans', sans-serif;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+#logo {
+  height: 190px;
+}
+
+#nav {
+  display: flex;
+  gap: 4rem;
+}
+
+#nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 525;
+  position: relative;
+  transition: 0.3s;
+}
+
+#nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
+#nav a:hover {
+  color: #d4af37;
+}
+
+#nav a:hover::after {
+  width: 100%;
+}
+
+#hero {
+  height: 100vh;
+  background: url("photos/UpPool.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+#hero h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  background: #d4af37;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.cta-button:hover {
+  background: #b7952b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+#lifestyle {
+  background: #111;
+  padding: 8rem 0;
+}
+
+.lifestyle-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+}
+
+.lifestyle-text {
+  flex: 1;
+  max-width: 45%;
+}
+
+.lifestyle-text h2 {
+  font-size: 2.6rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+}
+
+.lifestyle-text p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.lifestyle-gallery {
+  flex: 1;
+  max-width: 50%;
+  margin-right: 6%;
+}
+
+.lifestyle-gallery .swiper {
+  width: 100%;
+  height: 60vh;
+}
+
+.lifestyle-gallery .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #d4af37;
+  transition: 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  background: #d4af37;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+#footer {
+  background: #181818;
+  text-align: center;
+  padding: 2rem 0;
+  color: #999;
+  font-size: 0.9rem;
+}
