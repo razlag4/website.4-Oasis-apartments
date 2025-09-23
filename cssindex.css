@@ -72,24 +72,115 @@ body {
 
 #hero {
   height: 100vh;
-  background: url("photos/UpPool.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
+
+.hero-bg.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  z-index: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.arrow:hover {
+  background: rgba(54, 39, 39, 0.8);
+  color: #111;
+  border-color: white;
+}
+
+.arrow.left {
+  left: 25px;
+}
+
+.arrow.right {
+  right: 25px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: #d4af37; 
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover; 
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+  z-index: 0;
+}
+
+.hero-bg.active {
+  opacity: 1;
+  transform: scale(1); 
+  z-index: 1;
+}
+
+
 
 #hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 #hero h1 {
@@ -151,7 +242,7 @@ body {
 .lifestyle-gallery {
   flex: 1;
   max-width: 50%;
-  margin-right: 6%;
+  margin-bottom: 5vh;
 }
 
 .lifestyle-gallery .swiper {
@@ -191,13 +282,141 @@ body {
   opacity: 1;
 }
 
-#footer {
-  background: #181818;
-  text-align: center;
-  padding: 2rem 0;
-  color: #999;
-  font-size: 0.9rem;
+#slides2 {
+  width: 100%;
+  height: 50vh;
+  color: white;
+  text-align: center;  
+  display: grid;     
+  place-items: center;
+  padding: 2rem 1rem;
 }
+
+#slides2 p {
+  font-size: 3rem;
+  margin-bottom: 0.1rem;
+}
+
+#slides2 h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+
+.options-sliders {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; 
+  margin: 4rem auto;
+  width: 90%;
+}
+
+
+.option-pair {
+  flex: 1;
+  max-width: 45%; 
+  background: #1a1a1a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.option-pair:nth-child(1),
+.option-pair:nth-child(2) {
+  flex-direction: column;
+}
+
+
+.option-text h1,
+.option-text h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+.option-text p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.option-pair .mini-slider {
+  width: 100%;
+  height: 385px;
+  border-bottom: 2px solid #111;
+}
+
+
+.mini-slider {
+  position: relative;
+  width: 40%;
+  height: 40vh;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.mini-slider .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.mini-slider .slide.active {
+  opacity: 1;
+}
+
+.mini-slider .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.mini-slider .arrow.left { left: 10px; }
+.mini-slider .arrow.right { right: 10px; }
+
+.mini-slider .dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.mini-slider .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+
+.mini-slider .dot.active {
+  background: #d4af37;
+}
+
+
 
 @media (max-width: 1024px) {
   #logo {
@@ -300,6 +519,7 @@ body {
   .lifestyle-gallery .swiper {
     height: 35vh;
   }
+
 
   #footer {
     font-size: 0.75rem;
