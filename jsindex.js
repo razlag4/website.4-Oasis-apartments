@@ -1,25 +1,20 @@
-AOS.init({
-  duration: 1200,
-  once: true
-});
+AOS.init({ duration: 1200, once: true });
 
-const AUTO_DELAY = 6000;
+const AUTO_DELAY = 2500;
 const PAUSE_AFTER_INTERACT = 8000;
 
 const hero = document.getElementById("hero");
-const images = [
+const heroImages = [
   "photos/UpPhoto1.png",
   "photos/UpPhoto2.png",
   "photos/UpPhoto3.png",
   "photos/UpPhoto4.png"
 ];
 
-
-images.forEach((src, i) => {
+heroImages.forEach((src, i) => {
   const bg = document.createElement("div");
-  bg.className = "hero-bg";
+  bg.className = "hero-bg" + (i === 0 ? " active" : "");
   bg.style.backgroundImage = `url(${src})`;
-  if (i === 0) bg.classList.add("active");
   hero.append(bg);
 });
 
@@ -37,8 +32,6 @@ function getOrCreateButton(id, html, className) {
     btn.innerHTML = html;
     btn.className = `arrow ${className}`;
     hero.appendChild(btn);
-  } else {
-    btn.classList.add("arrow", className);
   }
   return btn;
 }
@@ -46,34 +39,24 @@ function getOrCreateButton(id, html, className) {
 const nextBtn = getOrCreateButton("next", "&#10095;", "right");
 const prevBtn = getOrCreateButton("prev", "&#10094;", "left");
 
-let dotsContainer = hero.querySelector(".hero-dots");
-if (dotsContainer) dotsContainer.remove();
-dotsContainer = document.createElement("div");
+let dotsContainer = document.createElement("div");
 dotsContainer.className = "hero-dots";
 hero.appendChild(dotsContainer);
 
-const dots = [];
-slides.forEach((_, i) => {
+const dots = slides.map((_, i) => {
   const dot = document.createElement("span");
   dot.className = "dot" + (i === 0 ? " active" : "");
   dot.title = `Slide ${i + 1}`;
-  dot.addEventListener("click", () => {
-    showSlide(i, { interaction: true });
-  });
+  dot.addEventListener("click", () => showSlide(i, { interaction: true }));
   dotsContainer.appendChild(dot);
-  dots.push(dot);
+  return dot;
 });
 
 function setActive(index) {
   slides.forEach((s, i) => {
     s.classList.toggle("active", i === index);
-    if (i === index) {
-      s.style.transform = "scale(1) translateZ(0)";
-      s.style.transition = "opacity 1.2s ease-in-out, transform 1.6s ease";
-    } else {
-      s.style.transform = "scale(1.08) translateX(30px)";
-      s.style.transition = "opacity 1.2s ease-in-out, transform 1.6s ease";
-    }
+    s.style.transform = i === index ? "scale(1) translateZ(0)" : "scale(1.08) translateX(30px)";
+    s.style.transition = "opacity 1.2s ease-in-out, transform 1.6s ease";
   });
   dots.forEach((d, i) => d.classList.toggle("active", i === index));
   const hc = hero.querySelector(".hero-content");
@@ -85,20 +68,13 @@ function setActive(index) {
 }
 
 function showSlide(index, opts = {}) {
-  const next = (index + slides.length) % slides.length;
-  current = next;
+  current = (index + slides.length) % slides.length;
   setActive(current);
-  if (opts.interaction) {
-    markUserInteraction();
-  }
+  if (opts.interaction) markUserInteraction();
 }
 
-function showNext() {
-  showSlide(current + 1, { interaction: true });
-}
-function showPrev() {
-  showSlide(current - 1, { interaction: true });
-}
+function showNext() { showSlide(current + 1, { interaction: true }); }
+function showPrev() { showSlide(current - 1, { interaction: true }); }
 
 function scheduleAuto() {
   clearTimeout(autoTimer);
@@ -122,47 +98,32 @@ function markUserInteraction() {
   scheduleAuto();
 }
 
-nextBtn.addEventListener("click", () => {
-  showNext();
-  markUserInteraction();
-});
-prevBtn.addEventListener("click", () => {
-  showPrev();
-  markUserInteraction();
-});
+nextBtn.addEventListener("click", () => { showNext(); markUserInteraction(); });
+prevBtn.addEventListener("click", () => { showPrev(); markUserInteraction(); });
 
-hero.addEventListener("mouseenter", () => {
-  isHovering = true;
-});
-hero.addEventListener("mouseleave", () => {
-  isHovering = false;
-});
+hero.addEventListener("mouseenter", () => { isHovering = true; });
+hero.addEventListener("mouseleave", () => { isHovering = false; });
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") { showNext(); markUserInteraction(); }
   if (e.key === "ArrowLeft")  { showPrev(); markUserInteraction(); }
 });
 
 let touchStartX = null;
-hero.addEventListener("touchstart", (e) => {
-  touchStartX = e.touches[0].clientX;
-});
-hero.addEventListener("touchend", (e) => {
+hero.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; });
+hero.addEventListener("touchend", e => {
   if (touchStartX == null) return;
   const dx = (e.changedTouches[0].clientX - touchStartX);
-  if (Math.abs(dx) > 40) {
-    if (dx < 0) showNext(); else showPrev();
-    markUserInteraction();
-  }
+  if (Math.abs(dx) > 40) { if (dx < 0) showNext(); else showPrev(); markUserInteraction(); }
   touchStartX = null;
 });
 
-hero.addEventListener("mousemove", (e) => {
+hero.addEventListener("mousemove", e => {
   const w = hero.clientWidth;
   const h = hero.clientHeight;
   const x = (e.clientX / w - 0.5) * 18;
   const y = (e.clientY / h - 0.5) * 10;
-  slides.forEach((s) => {
+  slides.forEach(s => {
     if (s.classList.contains("active")) {
       s.style.backgroundPosition = `calc(50% + ${x * 0.6}px) calc(50% + ${y * 0.4}px)`;
     } else {
@@ -177,9 +138,7 @@ hero.addEventListener("mouseleave", () => {
 
 const ctaButton = document.querySelector('#cta-button');
 if (ctaButton) {
-  ctaButton.addEventListener('click', () => {
-    alert("Checking availability...");
-  });
+  ctaButton.addEventListener('click', () => { alert("Checking availability..."); });
 }
 
 try {
@@ -188,37 +147,18 @@ try {
     spaceBetween: 30,
     centeredSlides: true,
     slidesPerView: 1,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     effect: 'coverflow',
-    coverflowEffect: {
-      rotate: 30,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true,
-    },
+    coverflowEffect: { rotate: 30, stretch: 0, depth: 200, modifier: 1, slideShadows: true }
   });
 } catch (e) {}
 
-(function injectTinyStyles(){
+(function(){
   const css = `
     .hero-content.slide-animate { animation: heroPop .5s ease; }
-    @keyframes heroPop {
-      0% { transform: translateY(6px); opacity: 0; }
-      60% { transform: translateY(-4px); opacity: 1; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes heroPop { 0% { transform: translateY(6px); opacity: 0; } 60% { transform: translateY(-4px); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
     .dot { transition: transform .22s ease, opacity .22s ease; }
     .dot:hover { transform: scale(1.25); opacity: 1; }
     .arrow { transition: transform .18s ease, background .18s ease; }
@@ -235,8 +175,6 @@ scheduleAuto();
 function createMiniSlider(containerId, images) {
   const container = document.getElementById(containerId);
   if (!container) return;
-
- 
   const slides = images.map((src, i) => {
     const slide = document.createElement("div");
     slide.className = "slide" + (i === 0 ? " active" : "");
@@ -244,8 +182,6 @@ function createMiniSlider(containerId, images) {
     container.appendChild(slide);
     return slide;
   });
-
-  
   const prev = document.createElement("div");
   prev.className = "arrow left";
   prev.innerHTML = "&#10094;";
@@ -254,12 +190,9 @@ function createMiniSlider(containerId, images) {
   next.innerHTML = "&#10095;";
   container.appendChild(prev);
   container.appendChild(next);
-
-
   const dotsWrap = document.createElement("div");
   dotsWrap.className = "dots";
   container.appendChild(dotsWrap);
-
   const dots = images.map((_, i) => {
     const dot = document.createElement("span");
     dot.className = "dot" + (i === 0 ? " active" : "");
@@ -267,29 +200,66 @@ function createMiniSlider(containerId, images) {
     dot.addEventListener("click", () => show(i));
     return dot;
   });
-
   let current = 0;
   function show(index) {
     current = (index + slides.length) % slides.length;
     slides.forEach((s, i) => s.classList.toggle("active", i === current));
     dots.forEach((d, i) => d.classList.toggle("active", i === current));
   }
-
   prev.addEventListener("click", () => show(current - 1));
   next.addEventListener("click", () => show(current + 1));
 }
 
-createMiniSlider("slider-left", [
-  "photos/UpPhoto1.png",
-  "photos/UpPhoto2.png",
-  "photos/UpPhoto3.png",
-  "photos/UpPhoto4.png"
-]);
+createMiniSlider("slider-left", heroImages);
+createMiniSlider("slider-right", heroImages);
 
-createMiniSlider("slider-right", [
-  "photos/UpPhoto1.png",
-  "photos/UpPhoto2.png",
-  "photos/UpPhoto3.png",
-  "photos/UpPhoto4.png"
-]);
+document.querySelectorAll("img").forEach(img => {
+  img.style.transition = "transform 0.25s ease";
+  img.addEventListener("mousemove", e => {
+    const rect = img.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    img.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 10}px)`;
+  });
+  img.addEventListener("mouseleave", () => {
+    img.style.transform = "scale(1) translate(0,0)";
+  });
+});
+
+document.querySelectorAll("img").forEach(img => {
+  img.style.transition = "transform 0.25s ease";
+  img.addEventListener("mousemove", e => {
+    const rect = img.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    img.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 10}px)`;
+  });
+  img.addEventListener("mouseleave", () => {
+    img.style.transform = "scale(1) translate(0,0)";
+  });
+});
+
+document.querySelectorAll("*").forEach(el => {
+  const bg = window.getComputedStyle(el).backgroundImage;
+  if (bg && bg !== "none" && el !== document.body) {
+    el.style.transition = "background-position 0.25s ease";
+    el.addEventListener("mousemove", e => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      el.style.backgroundPosition = `calc(50% + ${x * 15}px) calc(50% + ${y * 10}px)`;
+    });
+    el.addEventListener("mouseleave", () => {
+      el.style.backgroundPosition = "center";
+    });
+  }
+});
+
+document.querySelectorAll("img").forEach(img => {
+  img.addEventListener("contextmenu", e => e.preventDefault()); 
+  img.setAttribute("draggable", "false");
+  img.addEventListener("mousedown", e => e.preventDefault()); 
+});
+
+
 
