@@ -213,31 +213,26 @@ function createMiniSlider(containerId, images) {
 createMiniSlider("slider-left", heroImages);
 createMiniSlider("slider-right", heroImages);
 
+const hoverImages = ["aparts.png"];
+
 document.querySelectorAll("img").forEach(img => {
+  const src = img.getAttribute("src");
+  if (!hoverImages.some(name => src.includes(name))) return; // пропускаем все остальные
+
   img.style.transition = "transform 0.25s ease";
+
   img.addEventListener("mousemove", e => {
     const rect = img.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     img.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 10}px)`;
   });
+
   img.addEventListener("mouseleave", () => {
     img.style.transform = "scale(1) translate(0,0)";
   });
 });
 
-document.querySelectorAll("img").forEach(img => {
-  img.style.transition = "transform 0.25s ease";
-  img.addEventListener("mousemove", e => {
-    const rect = img.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    img.style.transform = `scale(1.05) translate(${x * 15}px, ${y * 10}px)`;
-  });
-  img.addEventListener("mouseleave", () => {
-    img.style.transform = "scale(1) translate(0,0)";
-  });
-});
 
 document.querySelectorAll("*").forEach(el => {
   const bg = window.getComputedStyle(el).backgroundImage;
@@ -262,4 +257,126 @@ document.querySelectorAll("img").forEach(img => {
 });
 
 
+const heroSection = document.getElementById("hero");
 
+if (heroSection) {
+  let sibling = heroSection.nextElementSibling;
+  while (sibling) {
+    sibling.querySelectorAll("img").forEach(img => {
+      if (img !== flowers && img.id !== "flowers1" && !img.src.includes("Logo.png")) {
+        img.classList.add("art-shape-below-hero");
+        img.style.width = "";
+        img.style.height = "";
+        img.style.display = "block";
+      }
+    });
+    sibling = sibling.nextElementSibling;
+  }
+}
+
+
+ const allImages = document.querySelectorAll('img');
+
+allImages.forEach(img => {
+  // Блокируем правый клик
+  img.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Блокируем обычный клик (ЛКМ)
+  img.addEventListener('click', e => e.preventDefault());
+
+  // Блокируем перетаскивание
+  img.addEventListener('dragstart', e => e.preventDefault());
+
+  
+  img.style.pointerEvents = 'auto';
+});
+
+
+hero.addEventListener("mouseenter", () => { isHovering = true; });
+hero.addEventListener("mouseleave", () => { isHovering = false; });
+
+
+setTimeout(() => {
+  showNext();
+  scheduleAuto();
+}, 5500);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const flowers = document.getElementById("flowers");
+  const optionsSliders = document.querySelector(".options-sliders");
+
+  if (!flowers || !optionsSliders) return;
+
+  let targetY = 0;
+  let currentY = 0;
+  let angle = 0;
+  let side = "left";
+  let isFlipping = false;
+
+  flowers.style.left = "0";
+  flowers.style.right = "auto";
+  flowers.style.transition = "none";
+
+  window.addEventListener("scroll", () => {
+    targetY = window.scrollY * 0.05;
+  });
+
+  function flipSide(newSide) {
+    if (isFlipping || side === newSide) return;
+    isFlipping = true;
+
+    flowers.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+    const offscreenX = side === "left" ? -window.innerWidth : window.innerWidth;
+    flowers.style.transform = `translate(${offscreenX}px, ${currentY}px)`;
+    flowers.style.opacity = "0";
+
+    setTimeout(() => {
+      side = newSide;
+      flowers.style.transition = "none";
+      if (side === "left") {
+        flowers.style.left = "0";
+        flowers.style.right = "auto";
+      } else {
+        flowers.style.left = "auto";
+        flowers.style.right = "0";
+      }
+
+      const startX = side === "left" ? -window.innerWidth : window.innerWidth;
+      flowers.style.transform = `translate(${startX}px, ${currentY}px)`;
+
+      requestAnimationFrame(() => {
+        flowers.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+        flowers.style.transform = `translate(0px, ${currentY}px)`;
+        flowers.style.opacity = "1";
+      });
+
+      setTimeout(() => {
+        isFlipping = false;
+      }, 450);
+    }, 400);
+  }
+
+  function animateFlowers() {
+    currentY += (targetY - currentY) * 0.04;
+    angle += 0.01;
+    const swayX = Math.sin(angle) * 15;
+    const swayY = Math.sin(angle * 0.5) * 8;
+
+    const slidersRect = optionsSliders.getBoundingClientRect();
+    const flowersRect = flowers.getBoundingClientRect();
+
+    if (flowersRect.bottom > slidersRect.top && side === "left") {
+      flipSide("right");
+    } else if (flowersRect.bottom <= slidersRect.top && side === "right") {
+      flipSide("left");
+    }
+
+    if (!isFlipping) {
+      flowers.style.transform = `translate(${swayX}px, ${currentY + swayY}px)`;
+    }
+
+    requestAnimationFrame(animateFlowers);
+  }
+
+  animateFlowers();
+});
