@@ -1,4 +1,8 @@
-AOS.init({ duration: 1200, once: true });
+AOS.init({
+  duration: 1200,
+  once: false,
+  mirror: true 
+});
 
 const AUTO_DELAY = 2500;
 const PAUSE_AFTER_INTERACT = 8000;
@@ -237,6 +241,8 @@ document.querySelectorAll("img").forEach(img => {
 document.querySelectorAll("*").forEach(el => {
   const bg = window.getComputedStyle(el).backgroundImage;
   if (bg && bg !== "none" && el !== document.body) {
+    if (el.closest(".section")) return; 
+
     el.style.transition = "background-position 0.25s ease";
     el.addEventListener("mousemove", e => {
       const rect = el.getBoundingClientRect();
@@ -249,6 +255,7 @@ document.querySelectorAll("*").forEach(el => {
     });
   }
 });
+
 
 document.querySelectorAll("img").forEach(img => {
   img.addEventListener("contextmenu", e => e.preventDefault()); 
@@ -380,3 +387,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animateFlowers();
 });
+
+const photoBox = document.getElementById("photoBox");
+const images = ["photos/cat.webp", "photos/dog.webp"];
+let index = 0;
+
+// контейнер под два слоя
+photoBox.style.position = "relative";
+photoBox.style.overflow = "hidden";
+
+// создаём слой с картинкой
+function createSlide(src) {
+  const slide = document.createElement("div");
+  slide.style.position = "absolute";
+  slide.style.top = 0;
+  slide.style.left = 0;
+  slide.style.width = "100%";
+  slide.style.height = "100%";
+  slide.style.backgroundImage = `url(${src})`;
+  slide.style.backgroundSize = "cover";
+  slide.style.backgroundPosition = "center";
+  slide.style.opacity = 0;
+  slide.style.transform = "scale(1.05) translateY(15px)";
+  slide.style.transition = "opacity 2s ease, transform 4s ease";
+  return slide;
+}
+
+// первая картинка
+let currentSlide = createSlide(images[index]);
+photoBox.appendChild(currentSlide);
+
+requestAnimationFrame(() => {
+  currentSlide.style.opacity = 1;
+  currentSlide.style.transform = "scale(1) translateY(0)";
+});
+
+// цикл
+setInterval(() => {
+  index = (index + 1) % images.length;
+  const nextSlide = createSlide(images[index]);
+  photoBox.appendChild(nextSlide);
+
+  // появление
+  requestAnimationFrame(() => {
+    nextSlide.style.opacity = 1;
+    nextSlide.style.transform = "scale(1) translateY(0)";
+  });
+
+  // уход старого
+  currentSlide.style.opacity = 0;
+  currentSlide.style.transform = "scale(1.05) translateY(-15px)";
+
+  setTimeout(() => {
+    photoBox.removeChild(currentSlide);
+    currentSlide = nextSlide;
+  }, 2000);
+}, 12500);
+
+if (window.innerWidth < 768) {
+  hero.removeEventListener("mousemove", () => {});
+  document.querySelectorAll("*").forEach(el => {
+    el.style.backgroundPosition = "center";
+    el.removeEventListener("mousemove", () => {});
+  });
+}
+
+document.querySelectorAll("#slider-left, #slider-right").forEach(container => {
+  let startX = null;
+  container.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+  container.addEventListener("touchend", e => {
+    if (startX == null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 30) {
+      const btn = container.querySelector(dx < 0 ? ".arrow.right" : ".arrow.left");
+      if (btn) btn.click();
+    }
+    startX = null;
+  });
+});
+
+function updateHeroHeight() {
+  if (window.innerWidth < 768) {
+    hero.style.height = window.innerHeight * 0.55 + "px";
+  } else {
+    hero.style.height = "";
+  }
+}
+window.addEventListener("resize", updateHeroHeight);
+updateHeroHeight();
+
+
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav");
+
+if (burger && nav) {
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("open");
+  });
+}
+
+  

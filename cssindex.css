@@ -476,17 +476,6 @@ body {
   background: #d4af37;
 }
 
-.photo {
-  width: 50%;
-  aspect-ratio: 4 / 2.8;
-  background-image: url("photos/aparts.png");
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-  pointer-events: none;
-  user-select: none;
-}
 
 .text {
   flex: 1;
@@ -501,7 +490,7 @@ body {
 }
 
 .section img{
-  width: 48%;
+  width: 55%;
   height: auto;
   object-fit: cover;
   border-radius: var(--radius-lg);
@@ -513,6 +502,9 @@ body {
   width: 52%;
 }
 
+#pw {
+  font-size: 22px;
+}
 
 .section .text p:first-child{
   color: var(--gold);
@@ -530,13 +522,13 @@ body {
 .text pre{
   display:block;
   white-space: pre-wrap;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  background: linear-gradient(180deg, rgba(14, 10, 10, 0.281), rgba(0, 0, 0, 0.247));
   padding: 16px 18px;
   border-radius: 10px;
-  border: 1px dashed rgba(255,255,255,0.03);
+  border: 1px dashed rgba(255, 255, 255, 0);
   color: var(--muted);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.45;
   overflow:auto;
 }
@@ -615,15 +607,355 @@ body {
 
 .amenities-images img:hover {
   filter: brightness(100%) contrast(100%);
-  transform: scale(1.04);
   box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+}
+
+________________________________________________
+
+.section {
+  display: flex;
+  gap: clamp(1.2rem, 3.6vw, 2.6rem);
+  align-items: center;
+  padding: clamp(2.4rem, 4.8vw, 4rem) 6%;
+}
+
+.text {
+  flex: 1;
+  max-width: 52%;
+}
+
+.text p:first-child {
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: .6rem;
+}
+
+.text h1 {
+  font-size: clamp(1.6rem, 3.6vw, 3.5rem);
+  margin-bottom: .8rem;
+  color: #d4af37;
+}
+
+.text p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.text button {
+  margin-top: .9rem;
+  padding: 25px 45px;
+  border-radius: 5px;
+  font-size: 17px;
+  border: none;
+  background: linear-gradient(90deg, rgba(212,175,55,0.95), rgba(166,124,0,0.95));
+  color: #081010;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.12);
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+
+.text button:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.photo-left,
+.photo-right {
+  flex: 1;
+  aspect-ratio: 16/11;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  border: 1px solid rgba(255,255,255,0.03);
+  background-size: cover;
+  background-position: center;
+}
+
+.photo-left {
+  background-image: url("photos/aparts.png");
+  border-radius: 3px;
+}
+
+.photo-right {
+  border-radius: 7px;
+  filter: brightness(85%);
+  background-image: url("photos/cat.webp");
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+
+#divbut {
+  background: rgba(14, 14, 14, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 5rem 10%;
+  text-align: center;
+  color: #ddd;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#divbut h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#divbut p {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #bbb;
+}
+
+#butbottons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+#butbottons button {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#butbottons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #d4af37;
+  transition: all 0.35s ease;
+  z-index: -1;
+}
+
+#butbottons button:hover {
+  color: #111;
+}
+
+#butbottons button:hover::before {
+  left: 0;
+}
+
+#botton1 {
+  border-radius: 4px;
+}
+
+#botton2 {
+  border-radius: 4px;
+}
+
+/* Легкая анимация появления блока */
+#divbut {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  background-color: rgba(32, 31, 31, 0.322);
+  padding: 4rem 0 2rem;
+  color: #ddd;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+}
+
+/* Контейнер трёх колонок */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+/* Левая колонка */
+.footer-section.left {
+  flex: 1;
+  margin-left: 9%;
+  max-width: 30%;
+}
+
+.footer-section.left p {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Центральная колонка */
+.footer-section.center {
+  flex: 1;
+  text-align: center;
+  max-width: 30%;
+}
+
+.footer-section.center h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-section.center .footer-link {
+  display: inline-block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section.center .footer-link:hover {
+  color: #d4af37;
+  transform: translateX(4px);
+}
+
+.footer-phone {
+  margin-top: 0.5rem;
+  color: #d4af37;
+  font-weight: 600;
+}
+
+/* Правая колонка */
+.footer-section.right {
+  flex: 1;
+  margin-right: 9%;
+  max-width: 30%;
+  text-align: right;
+}
+
+.footer-hours h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-hours li {
+  color: #aaa;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.footer-hours li:hover {
+  color: #fff;
+}
+
+/* Нижняя часть футера */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-links a {
+  color: #bbb;
+  font-size: 0.9rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-section h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
 }
 
 
 
+.footer-copy {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
+
+/* ================================
+   📱 АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+=================================== */
+
+/* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
-  #logo {
-    height: 140px;
+  .container {
+    width: 95%;
   }
 
   #nav {
@@ -631,41 +963,92 @@ body {
   }
 
   #hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
 
   .lifestyle-container {
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .lifestyle-text,
   .lifestyle-gallery {
     max-width: 100%;
-    margin: 0;
+    text-align: center;
   }
 
-  .lifestyle-gallery .swiper {
-    height: 50vh;
+  .options-sliders {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .option-pair {
+    max-width: 100%;
+  }
+
+  .section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section img,
+  .photo-left,
+  .photo-right {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .text {
+    max-width: 100%;
+  }
+
+  .amenities-images {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .amenities-images img {
+    max-width: 48%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-section.left,
+  .footer-section.center,
+  .footer-section.right {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .footer-section.right {
+    text-align: center;
   }
 }
 
-@media (max-width: 768px) {
+/* Телефоны (до 600px) */
+@media (max-width: 600px) {
   #header {
-    height: 4rem;
     padding: 0 1rem;
   }
 
   #logo {
-    height: 80px;
+    height: 100px;
   }
 
   #nav {
-    display: none;
+    display: none; /* можно потом заменить на бургер, если захочешь */
+  }
+
+  #hero {
+    height: 80vh;
   }
 
   #hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     padding: 0 1rem;
   }
 
@@ -686,45 +1069,95 @@ body {
     height: 40vh;
   }
 
-  #footer {
-    font-size: 0.8rem;
-    padding: 1.5rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  #logo {
-    height: 60px;
-  }
-
-  #hero h1 {
+  #slides2 p {
     font-size: 1.8rem;
   }
 
-  .cta-button {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+  #slides2 h1 {
+    font-size: 2.2rem;
   }
 
-  .lifestyle-text h2 {
-    font-size: 1.6rem;
+  .options-section {
+    padding: 4rem 1rem;
   }
 
-  .lifestyle-text p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .options-section h2 {
+    font-size: 2.2rem;
   }
 
-  .lifestyle-gallery .swiper {
-    height: 35vh;
+  .options-section p {
+    font-size: 1rem;
   }
 
+  .option-pair {
+    padding: 20px;
+  }
 
-  #footer {
-    font-size: 0.75rem;
+  .mini-slider {
+    height: 250px;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .text h1 {
+    font-size: 1.8rem;
+  }
+
+  .text p {
+    font-size: 1rem;
+  }
+
+  .text button {
+    padding: 14px 30px;
+    font-size: 0.95rem;
+  }
+
+  .amenities-images img {
+    max-width: 100%;
+  }
+
+  #divbut {
+    padding: 3rem 1rem;
+  }
+
+  #divbut h1 {
+    font-size: 1.8rem;
+  }
+
+  #divbut p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  #butbottons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  #butbottons button {
+    width: 100%;
+  }
+
+  .footer-section.center h3,
+  .footer-section.right h3 {
+    font-size: 2rem;
+  }
+
+  .footer-links {
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+  
+
+  .footer-copy {
+    font-size: 0.85rem;
+    padding: 0 1rem;
   }
 }
+
