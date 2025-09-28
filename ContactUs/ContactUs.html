@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Oasis Apartments</title>
+  <meta name="creator" content="Misuvava">
+  <link rel="stylesheet" href="CssContact/CssContact.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
+ 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+
+  <link rel="stylesheet" href="CssContact/Fonts.css">
+</head>
+<body>
+  <header id="header" data-aos="fade-down">
+    <div class="container" data-aos="fade-down">
+      <img id="logo" src="PhotosContact/Logo.png" alt="Oasis Logo">
+      <nav id="nav" data-aos="fade-down">
+        <a href="#" data-aos="fade-up">(424) 467-4534</a>
+        <a href="../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
+        <a href="#" data-aos="fade-up">Application</a>
+      </nav>
+    </div>
+  </header>
+
+  <main> 
+<div class="header">
+  <img src="PhotosContact/header.png" alt="Headphoto" id="headphoto">
+  <h1>CONTACT US</h1>
+</div>
+
+<section class="register-section">
+  <div class="form-container">
+    <p class="required-note">* Indicates required fields</p>
+
+    <h1>Personal Information</h1>
+    <form id="contactForm">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" name="firstName" required>
+          <p class="error-message" id="error-firstName">Please provide a valid first name</p>
+        </div>
+        <div class="input-group">
+          <label for="lastName">Last Name*</label>
+          <input type="text" id="lastName" name="lastName" required>
+          <p class="error-message" id="error-lastName">Please provide a valid last name</p>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="email" required>
+        <p class="error-message" id="error-email">Please enter a valid email address</p>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone Number*</label>
+        <input type="tel" id="phone" name="phone" required>
+        <p class="error-message" id="error-phone">Please enter a valid phone number</p>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="sms" name="sms" checked>
+        <label for="sms">Yes, I'd be happy to receive text messages!</label>
+      </div>
+
+      <section>
+
+    <div id="hiddenText" class="hidden">
+      <p>
+        By checking this box, you agree to receive marketing text messages from E&S Ring Management.
+         You may unsubscribe at any time. You understand that your consent is not a condition to make any purchase of property, 
+         goods or services. Msg and Data rates may apply. E&S Ring Management's website and communications are subject to our <a href="https://www.esring.com/privacypolicy">Privacy Policy</a>
+        and <a href="https://www.esring.com/termsandconditions">Terms of Service .</a>
+      </p>
+    </div>
+
+    <button id="toggleBtn" type="button">Show more</button>
+  </section>
+
+      <h2>Additional Information</h2>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="bedroom">Bedroom</label>
+          <select id="bedroom" name="bedroom">
+            <option value="any">Any</option>
+            <option value="2">2 Bedroom</option>
+            <option value="1">1 Bedroom</option>
+            <option value="0">0 Bedroom</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="rent">Preferred Rent</label>
+          <input placeholder="$" type="text" id="rent" name="rent">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="moveInDate">Move-In Date</label>
+        <input type="date" id="moveInDate" name="moveInDate">
+      </div>
+
+      <div class="input-group">
+        <label for="message">Message*</label>
+        <textarea id="message" name="message" required></textarea>
+        <p class="error-message" id="error-message">Please enter a message</p>
+      </div>
+
+      <p class="policy-text">
+        <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and 
+        <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+      </p>
+
+      <button id="submitBtn" type="submit" class="submit-btn">Send My Message</button>
+
+    </form>
+  </div>
+
+  <aside class="info-container">
+    <div class="info-block">
+      <div class="info-icon">📞</div>
+      <div class="info-text phone-number">(424) 452-2963</div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-icon">🕒</div>
+      <div class="info-text">
+        <p class="hours-title">Office Hours</p>
+        <p class="hours-list">
+          Monday: 9 AM – 6 PM<br>
+          Tuesday: 10 AM – 6 PM<br>
+          Wednesday: 9 AM – 6 PM<br>
+          Thursday: 9 AM – 6 PM<br>
+          Friday: 9 AM – 6 PM<br>
+          Saturday: 9 AM – 6 PM<br>
+          Sunday: 9 AM – 6 PM
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-icon">📍</div>
+      <div class="info-text">
+        <a href="https://www.google.com/maps/@24.8357025,55.4059638,2144m/data=!3m1!1e3?entry=ttu" class="address-link" target="_blank">
+          <strong>The Oasis</strong><br>
+          6300 Green Valley Circle<br>
+          Culver City, CA 90230
+        </a>
+      </div>
+    </div>
+  </aside>
+</section>
+
+
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- Левый блок -->
+    <div class="footer-section left">
+      <h3>Beginning</h3>
+      <p>
+        Life’s essential commodities and extra comforts are given from the get-go, providing a canvas you are free to personalize as you see fit. Your new home is only a call away!
+      </p>
+    </div>
+
+    <!-- Центральный блок -->
+    <div class="footer-section center">
+      <h3>LOCATION</h3>
+      <a href="#" class="footer-link">The Meadows</a><br>
+      <a href="#" class="footer-link">6300 Green Valley Circle</a><br>
+      <a href="#" class="footer-link">Culver City, CA 90230</a><br>
+      <p class="footer-phone">(310) 670-5983</p>
+    </div>
+
+    <!-- Правый блок -->
+    <div class="footer-section right footer-hours">
+      <h3>OFFICE HOURS</h3>
+      <ul>
+        <li>Monday: 9 AM – 6 PM</li>
+        <li>Tuesday: 10 AM – 6 PM</li>
+        <li>Wednesday: 9 AM – 6 PM</li>
+        <li>Thursday: 9 AM – 6 PM</li>
+        <li>Friday: 9 AM – 6 PM</li>
+        <li>Saturday: 9 AM – 6 PM</li>
+        <li>Sunday: 9 AM – 6 PM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="#">Resident Login</a>
+      <a href="#">Applicant Login</a>
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Accessibility Statement</a>
+    </div>
+    <p class="footer-copy">
+      © 2025 Developed by razlag4
+    </p>
+  </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="JavaScript/JsContact.js"></script>
+</body>
+</html>
