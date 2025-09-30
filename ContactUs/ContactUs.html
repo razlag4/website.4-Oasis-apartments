@@ -12,22 +12,22 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-
   <link rel="stylesheet" href="CssContact/Fonts.css">
 </head>
 <body>
+  
   <header id="header" data-aos="fade-down">
     <div class="container" data-aos="fade-down">
-      <img id="logo" src="PhotosContact/Logo.png" alt="Oasis Logo">
+      <a href="../index/index.html">
+        <img id="logo" src="PhotosContact/Logo.png" alt="Oasis Logo">
+      </a>
       <nav id="nav" data-aos="fade-down">
         <a href="#" data-aos="fade-up">(424) 467-4534</a>
         <a href="../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
-        <a href="#" data-aos="fade-up">Application</a>
+        <a href="../Application/Application.html" data-aos="fade-up">Application</a>
       </nav>
     </div>
   </header>
-
   <main> 
 <div class="header">
   <img src="PhotosContact/header.png" alt="Headphoto" id="headphoto">
@@ -44,25 +44,24 @@
         <div class="input-group">
           <label for="firstName">First Name*</label>
           <input type="text" id="firstName" name="firstName" required>
-          <p class="error-message" id="error-firstName">Please provide a valid first name</p>
+          
         </div>
         <div class="input-group">
           <label for="lastName">Last Name*</label>
           <input type="text" id="lastName" name="lastName" required>
-          <p class="error-message" id="error-lastName">Please provide a valid last name</p>
+          
         </div>
       </div>
 
       <div class="input-group">
         <label for="email">Email Address*</label>
         <input type="email" id="email" name="email" required>
-        <p class="error-message" id="error-email">Please enter a valid email address</p>
+        
       </div>
 
       <div class="input-group">
         <label for="phone">Phone Number*</label>
         <input type="tel" id="phone" name="phone" required>
-        <p class="error-message" id="error-phone">Please enter a valid phone number</p>
       </div>
 
       <div class="checkbox-group">
@@ -124,12 +123,19 @@
 
   <aside class="info-container">
     <div class="info-block">
-      <div class="info-icon">📞</div>
+      <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.41 12.41 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.41 12.41 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+</svg>
+</div>
       <div class="info-text phone-number">(424) 452-2963</div>
     </div>
 
     <div class="info-block">
-      <div class="info-icon">🕒</div>
+      <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 16 14"/>
+</svg>
+</div>
       <div class="info-text">
         <p class="hours-title">Office Hours</p>
         <p class="hours-list">
@@ -145,7 +151,11 @@
     </div>
 
     <div class="info-block">
-      <div class="info-icon">📍</div>
+      <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+  <circle cx="12" cy="10" r="3"/>
+</svg>
+</div>
       <div class="info-text">
         <a href="https://www.google.com/maps/@24.8357025,55.4059638,2144m/data=!3m1!1e3?entry=ttu" class="address-link" target="_blank">
           <strong>The Oasis</strong><br>
@@ -156,6 +166,7 @@
     </div>
   </aside>
 </section>
+</main>
 
 
   <footer class="footer">
@@ -194,9 +205,9 @@
 
   <div class="footer-bottom">
     <div class="footer-links">
-      <a href="#">Resident Login</a>
-      <a href="#">Applicant Login</a>
-      <a href="#">Terms and Conditions</a>
+      <a href="../Resident_Login/Resident_Login.html">Resident Login</a>
+      <a href="../Application/Application.html">Applicant Login</a>
+      <a href="../ContactUs/ContactUs.html">Terms and Conditions</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Contact Us</a>
       <a href="#">Accessibility Statement</a>
