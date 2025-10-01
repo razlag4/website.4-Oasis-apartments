@@ -566,6 +566,61 @@ button:focus {
 }
 
 
+.decor-top-left,
+.decor-bottom-right {
+  position: absolute;
+  width: 880px;
+  height: 880px;
+  opacity: 0.12;
+  pointer-events: none;
+  filter: blur(10px) drop-shadow(0 0 25px rgba(184, 156, 114, 0.3));
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Верхняя фигура */
+.decor-top-left {
+  top: -300px;
+  left: -250px;
+}
+
+/* Нижняя фигура */
+.decor-bottom-right {
+  bottom: -300px;
+  right: -250px;
+}
+
+/* Заливка путей */
+.decor-top-left path,
+.decor-bottom-right path {
+  fill: #b89c72;
+  opacity: 0.7;
+}
+
+/* Анимация "порхания" */
+@keyframes flutter {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(4deg); }
+}
+
+.decor-top-left g,
+.decor-bottom-right g {
+  animation: flutter 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Клонированные "летающие" svg */
+.floating-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 2;
+}
+
 
 @media (max-width: 600px) {
   .info-block {

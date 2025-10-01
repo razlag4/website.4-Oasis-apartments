@@ -673,14 +673,14 @@ ________________________________________________
 }
 
 .photo-left {
-  background-image: url("photos/aparts.png");
+  background-image: url("index/photos/aparts.png");
   border-radius: 3px;
 }
 
 .photo-right {
   border-radius: 7px;
   filter: brightness(85%);
-  background-image: url("photos/cat.webp");
+  background-image: url("index/photos/cat.webp");
   background-size: cover;
   background-position: center;
   transition: opacity 1s ease-in-out;

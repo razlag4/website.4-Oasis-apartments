@@ -9,10 +9,10 @@ const PAUSE_AFTER_INTERACT = 8000;
 
 const hero = document.getElementById("hero");
 const heroImages = [
-  "photos/UpPhoto1.png",
-  "photos/UpPhoto2.png",
-  "photos/UpPhoto3.png",
-  "photos/UpPhoto4.png"
+  "index/photos/UpPhoto1.png",
+  "index/photos/UpPhoto2.png",
+  "index/photos/UpPhoto3.png",
+  "index/photos/UpPhoto4.png"
 ];
 
 heroImages.forEach((src, i) => {
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const photoBox = document.getElementById("photoBox");
-const images = ["photos/cat.webp", "photos/dog.webp"];
+const images = ["index/photos/cat.webp", "index/photos/dog.webp"];
 let index = 0;
 
 // контейнер под два слоя
