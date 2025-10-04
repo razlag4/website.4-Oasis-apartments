@@ -4,6 +4,10 @@ AOS.init({
   mirror: true 
 });
 
+ document.getElementById('cta-button').addEventListener('click', () => {
+    window.location.href = 'Floors/floors.html';
+  });
+
 const AUTO_DELAY = 2500;
 const PAUSE_AFTER_INTERACT = 8000;
 
@@ -140,10 +144,6 @@ hero.addEventListener("mouseleave", () => {
   slides.forEach(s => s.style.backgroundPosition = "center");
 });
 
-const ctaButton = document.querySelector('#cta-button');
-if (ctaButton) {
-  ctaButton.addEventListener('click', () => { alert("Checking availability..."); });
-}
 
 try {
   const swiper = new Swiper('.swiper', {

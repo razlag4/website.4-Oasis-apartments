@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Studio",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "1 Bathroom",
+    "size": "445 Sq. Ft.",
+    "available": "3 Available",
+    "price": "$2,484",
+    "deposit": "$500",
+    "image": "HomeFloors/1floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Plan A",
+    "bedrooms": "2 Bedrooms",
+    "bathrooms": "2 Bathrooms",
+    "size": "1087 Sq. Ft.",
+    "available": "3 Available",
+    "price": "$3,307",
+    "deposit": "$500",
+    "image": "HomeFloors/2floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee2.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Plan B",
+    "bedrooms": "2 Bedrooms",
+    "bathrooms": "2 Bathrooms",
+    "size": "1170 Sq. Ft.",
+    "available": "1 Available",
+    "price": "$3,544",
+    "deposit": "$500",
+    "image": "HomeFloors/3floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee3.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Plan C",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "1 Bathrooms",
+    "size": "710 Sq. Ft.",
+    "available": "2 Available",
+    "price": "$3,479",
+    "deposit": "$500",
+    "image": "HomeFloors/4floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee4.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Plan C-1",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "1 Bathrooms",
+    "size": "740 Sq. Ft.",
+    "available": "2 Available",
+    "price": "$3,559",
+    "deposit": "$500",
+    "image": "HomeFloors/5floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee5.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Renovated Plan C-1",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "1 Bathrooms",
+    "size": "740 Sq. Ft.",
+    "available": "1 Available",
+    "price": "$3,129",
+    "deposit": "$500",
+    "image": "HomeFloors/6floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee6.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Renovated Plan C",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "1 Bathrooms",
+    "size": "710 Sq. Ft.",
+    "available": "3 Available",
+    "price": "$3,054",
+    "deposit": "$500",
+    "image": "HomeFloors/7floor.webp",
+    "buttons": [
+      {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee7.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  },
+  {
+    "title": "Plan D",
+    "bedrooms": "1 Bedrooms",
+    "bathrooms": "2 Bathrooms",
+    "size": "1012 Sq. Ft.",
+    "available": "Inquire for details",
+    "price": "Call for details",
+    "deposit": "$500",
+    "image": "HomeFloors/8floor.webp",
+    "buttons": [
+      {"text": "GET NOTIFIED", "url": "Buttons/buttonSee8.html"},
+      {"text": "GUIDED TOUR", "url": "https://example.com"}
+    ]
+  }
+]

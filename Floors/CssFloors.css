@@ -1,0 +1,1041 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nata Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  padding-top: 5rem; /* высота header */
+  background: #111;
+  color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+
+
+#header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: rgba(32, 32, 32, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-height: 1500px;
+  z-index: 1000;
+}
+
+#headh1 {
+  font-size: 3.2rem;
+  text-align: center;
+  margin: 2rem 0;
+  background: linear-gradient(90deg, #f0eddb, #969593);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+
+/* Тонкая нижняя золотая линия */
+#headh1::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60%;
+  margin: 0.5rem auto 0;
+  background: linear-gradient(90deg, #d1ceba, #b4ae9f);
+  border-radius: 2px;
+}
+
+
+
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#logo {
+  height: 190px;
+}
+
+#nav {
+  display: flex;
+  gap: 4rem;
+}
+
+#nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 525;
+  position: relative;
+  transition: 0.3s;
+}
+
+#nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
+#nav a:hover {
+  color: #d4af37;
+}
+
+#nav a:hover::after {
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+svg.decor-top-left,
+svg.decor-bottom-right,
+.floating-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 230px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+
+.header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(40%);
+  z-index: -1;
+}
+
+
+.header h1 {
+    font-size: 50px;
+}
+
+#texts {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+  color: #f5f5f5;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+/* Левая колонка (заголовок) */
+#texts h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;       /* яркий заголовок */
+  letter-spacing: -0.5px;
+}
+
+#texts h1::first-line {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #cfcfcf;       /* светло-серая подстрока */
+  letter-spacing: 0;
+}
+
+/* Правая колонка (текст) */
+#texts p {
+  font-size: 1rem;
+  color: #d9d9d9;       /* мягкий светлый текст, хорошо читается */
+  margin-bottom: 20px;
+}
+
+#texts a {
+  color: #00b7ff;       /* акцент на ссылках */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#texts a:hover {
+  color: #66d3ff;       /* чуть ярче при наведении */
+  text-decoration: underline;
+}
+
+
+
+/* Общий контейнер для фильтров */
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;             /* перенос на новую строку если экран узкий */
+  gap: 33px;
+  max-width: 1200px;
+  margin: 40px auto;
+  margin-bottom: 13rem;
+  padding: 25px;
+  background: rgba(25, 25, 25, 0.8); /* едва заметный тёмный фон */
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* Каждая кнопка и input в одном стиле */
+#buttons .block,
+#buttons .block4,
+#buttons .block6 {
+  width: 235px;
+  flex-shrink: 0;
+}
+
+#buttons .dropdown-btn6,
+#buttons input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #1c1c1c;
+  color: #f1f1f1;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+#buttons .dropdown-btn6::placeholder {
+  color: #aaa;
+}
+
+/* Общие блоки */
+.block, .block4, .block5 {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Стили кнопок */
+button[draggable="false"],
+.dropdown-btn1,
+.dropdown-btn2,
+.dropdown-btn3,
+.dropdown-btn4,
+.dropdown-btn {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 250px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+button[draggable="false"]:hover,
+.dropdown-btn1:hover,
+.dropdown-btn2:hover,
+.dropdown-btn3:hover,
+.dropdown-btn4:hover,
+.dropdown-btn5:hover {
+  background: #2a2a2a;
+}
+
+
+
+/* Стили выпадающих списков */
+.dropdown-content1,
+.dropdown-content2,
+.dropdown-content3,
+.dropdown-content4,
+.dropdown-content5 {
+  display: none;
+  position: absolute;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-top: 5px;
+  width: 250px;
+  z-index: 100;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Опции для Bedrooms и Bathrooms */
+.dropdown-content1 .option1,
+.dropdown-content2 .option2 {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content1 .option1:hover,
+.dropdown-content2 .option2:hover {
+  background: #3a3a3a;
+}
+
+/* Действия (Clear / Done) */
+.actions1, .actions2, .actions3, .actions4, .actions5{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+/* Кнопки Clear и Done */
+.clear1, .clear2,
+.done1, .done2, .done3, .done4, .done5{
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.clear1, .clear2 {
+  background: #444;
+  color: #fff;
+}
+
+.clear3, .clear4 {
+  background: transparent;
+  color: #888;
+  border: 1px solid #555;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.clear3:hover, .clear4:hover {
+  color: #fff;
+  background: #555;
+  border-color: #666;
+}
+
+.actions3.active .clear3,
+.actions4.active .clear4 {
+  color: #fff;
+  background: #666;
+  border-color: #777;
+}
+
+
+.done1, .done2, .done3, .done4, .done5 {
+  background: #007aff;
+  color: #fff;
+}
+
+/* Стили для инпутов */
+.size-inputs, .size-inputs4, .date-inputs5 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0;
+  flex-wrap: wrap; /* для корректного отображения нескольких инпутов */
+}
+
+.size-input, .input4, .input5 {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #1c1c1c;
+  color: #fff;
+}
+
+/* Текст "to" */
+.to-text, .to4 {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Лейблы */
+.label1, .label2, .label3, .label4, .label5 {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+/* Apartment Number стиль как у кнопок */
+.dropdown-btn6 {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: text; /* курсор как для текста */
+  width: 250px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.dropdown-btn6::placeholder {
+  color: #aaa;
+}
+
+.dropdown-btn6:focus {
+  outline: none;
+  border-color: #007aff;
+  box-shadow: 0 0 6px #007aff;
+}
+
+.dropdown-btn6:hover {
+  background: #2a2a2a;
+}
+
+.option1.selected,
+.option2.selected {
+  background: #0e0d0d;
+  color: #fff;
+}
+
+/* Кнопки действий по умолчанию */
+.clear1, .clear2, .done1, .done2 {
+  background: #724c4c;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+/* Когда есть выбор — кнопки подсвечены */
+.actions1.active .clear1,
+.actions1.active .done1,
+.actions2.active .clear2,
+.actions2.active .done2 {
+  background: #a1a1a1;
+}
+
+
+
+/* 🌟 Общий стиль секции */
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+  font-size: 34px;
+  letter-spacing: 1px;
+  color: #f7f7f7;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #3cb9b5, #1e6b69);
+  margin: 14px auto 0;
+  border-radius: 3px;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 33px;
+  max-width: 80%;
+  margin: 0 auto;
+  position: relative; /* обязательно для z-index вложенных элементов */
+  z-index: 0;         /* базовый уровень, кнопки выше него */
+}
+
+/* 🧱 Карточка плана */
+.plan-card {
+  background: linear-gradient(145deg, #333333, #1f1f1f);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.35s ease;
+  color: #f1f1f1;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.plan-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(60,185,181,0.15) 0%, transparent 60%);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.plan-card:hover::before {
+  opacity: 1;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+}
+
+/* 🏷️ Заголовок плана */
+.plan-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ℹ️ Информация (bed/bath) */
+.plan-info {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #bcbcbc;
+}
+
+.plan-size,
+.plan-availability {
+  font-size: 15px;
+  text-align: center;
+  color: #cfcfcf;
+  margin-bottom: 4px;
+}
+
+/* 🏡 Картинка плана */
+.plan-image {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  margin: 18px 0;
+  border-radius: 12px;
+  background: #11111133;
+  transition: transform 0.4s ease;
+}
+
+.plan-card:hover .plan-image {
+  transform: scale(1.05);
+}
+
+/* 💰 Блок цены */
+.plan-price {
+  background: #242424;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 14px 0;
+  width: 85%;
+  margin: 14px auto 0;
+  box-shadow: inset 0 0 10px rgba(60,185,181,0.25);
+}
+
+.plan-price h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px 0;
+  text-align: center;
+}
+
+.plan-price p {
+  font-size: 15px;
+  color: #c9c9c9;
+  margin: 0;
+  text-align: center;
+}
+
+/* 🧭 Кнопки */
+.plan-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.plan-buttons button {
+  flex: 1;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  position: relative; /* обязательно для работы z-index */
+  z-index: 50;        /* ставим выше фоновых эффектов карточки */
+  background-clip: padding-box; /* чтобы границы не перекрывали эффекты */
+}
+
+.plan-buttons button:first-child {
+  background: linear-gradient(135deg, #3cb9b5, #1e6b69);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(60,185,181,0.4);
+}
+
+
+
+.plan-buttons button:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(60,185,181,0.6);
+}
+
+.plan-buttons button:last-child {
+  background: transparent;
+  border: 1px solid #666;
+  color: #f1f1f1;
+}
+
+.plan-buttons button:last-child:hover {
+  background: #2a2a2a;
+  border-color: #888;
+}
+
+
+#rent-info {
+  margin-top: 9rem;
+  color: #b1b1b1;
+  padding: 40px 20px;
+  text-align: left;
+  margin-left: 5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Блок Understanding Fees */
+#fees-section {
+  background: #141414;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+#fees-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+#fees-section p {
+  font-size: 1rem;
+  color: #ddd;
+  max-width: 750px;
+  margin: 0 auto 25px;
+}
+
+#feesbutton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* расстояние между текстом и стрелкой */
+  padding: 14px 30px;
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-size: 0.95rem; /* можно подогнать */
+}
+
+#feesbutton .arrow-icon {
+  width: 1em;   /* подгоняем под размер текста */
+  height: 1em;
+  fill: #000;   /* или #333 — под стиль текста */
+}
+
+
+#feesbutton:hover {
+  background: #c0c0c0;
+  transform: translateY(-3px);
+}
+
+/* Блок с туром */
+#tour-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+  align-items: center;
+}
+
+#tour-section h3 {
+  font-size: 1rem;
+  color: #a8a8a8;
+  margin-bottom: 5px;
+}
+
+#tour-section h1 {
+  font-size: 2rem;
+  color: #979797;
+  margin-bottom: 20px;
+}
+
+#tourbutton {
+  background: #4b6f78;
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+#tourbutton:hover {
+  background: #618991;
+  transform: translateY(-3px);
+}
+
+.tour-right p {
+  font-size: 1rem;
+  color: #b4b4b4;
+  line-height: 1.7;
+}
+
+.tour-right a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.tour-right a:hover {
+  text-decoration: underline;
+}
+
+
+.fade-filter {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fade-filter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.actions3 .done3:disabled,
+.actions4 .done4:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Неактивное состояние (disabled) */
+.done1:disabled,
+.done2:disabled {
+  background: #724c4c;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Базовое состояние для плавных переходов */
+.done1,
+.done2 {
+  transition: background 0.3s ease;
+}
+
+/* Активное состояние (когда есть ввод) */
+.actions1.active .done1:not(:disabled),
+.actions2.active .done2:not(:disabled) {
+  background: #a1a1a1;
+  cursor: pointer;
+}
+
+
+.decor-top-left,
+.decor-bottom-right {
+  position: absolute;
+  width: 880px;
+  height: 880px;
+  opacity: 0.12;
+  pointer-events: none;
+  filter: blur(10px) drop-shadow(0 0 25px rgba(184, 156, 114, 0.3));
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Верхняя фигура */
+.decor-top-left {
+  top: -300px;
+  left: -250px;
+}
+
+/* Нижняя фигура */
+.decor-bottom-right {
+  bottom: -300px;
+  right: -250px;
+}
+
+/* Заливка путей */
+.decor-top-left path,
+.decor-bottom-right path {
+  fill: #b89c72;
+  opacity: 0.7;
+}
+
+/* Анимация "порхания" */
+@keyframes flutter {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(4deg); }
+}
+
+.decor-top-left g,
+.decor-bottom-right g {
+  animation: flutter 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Клонированные "летающие" svg */
+.floating-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.plan-buttons {
+  display: flex;
+  gap: 15px; /* расстояние между кнопками */
+  justify-content: space-between;
+  margin-top: 15px;
+  z-index: 199; /* кнопки выше всего */
+  position: relative;
+}
+
+.plan-btn {
+  flex: 1; /* обе кнопки равной ширины */
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  z-index: 199; /* поверх всего */
+  position: relative;
+}
+
+.plan-btn:first-child {
+  background: #d4a055; /* чуть ярче для SEE AVAILABILITY */
+}
+
+.plan-btn:first-child:hover {
+  background: #e0b26b;
+}
+
+.plan-btn:last-child {
+  background: #555; /* GUIDED TOUR темнее */
+}
+
+.plan-btn:last-child:hover {
+  background: #777;
+}
+
+.plan-btn:active {
+  transform: scale(0.97);
+}
+
+
+.footer {
+  background-color: rgba(32, 31, 31, 0.322);
+  padding: 4rem 0 2rem;
+  color: #ddd;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+}
+
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+
+.footer-section.left {
+  flex: 1;
+  margin-left: 9%;
+  max-width: 30%;
+}
+
+.footer-section.left p {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+.footer-section.center {
+  flex: 1;
+  text-align: center;
+  max-width: 30%;
+}
+
+.footer-section.center h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-section.center .footer-link {
+  display: inline-block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section.center .footer-link:hover {
+  color: #d4af37;
+  transform: translateX(4px);
+}
+
+.footer-phone {
+  margin-top: 0.5rem;
+  color: #d4af37;
+  font-weight: 600;
+}
+
+
+.footer-section.right {
+  flex: 1;
+  margin-right: 9%;
+  max-width: 30%;
+  text-align: right;
+}
+
+.footer-hours h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-hours li {
+  color: #aaa;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.footer-hours li:hover {
+  color: #fff;
+}
+
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-links a {
+  color: #bbb;
+  font-size: 0.9rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-section h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+
+
+.footer-copy {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 800px;
+}

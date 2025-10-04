@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Oasis Apartments</title>
+  <meta name="creator" content="Misuvava">
+  <link rel="stylesheet" href="CssFloors.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
+ 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="../fonts.css">
+</head>
+<body>
+  
+<!-- Верхняя бабочка -->
+<svg class="decor-top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradientTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#goldGradientTop)" stroke-width="1.8" fill="none">
+    <!-- Левое крыло -->
+    <path d="M100 100 C40 20, 20 80, 80 100 C40 120, 40 160, 100 100 Z" />
+    <!-- Правое крыло -->
+    <path d="M100 100 C160 20, 180 80, 120 100 C160 120, 160 160, 100 100 Z" />
+    <!-- Тело -->
+    <line x1="100" y1="80" x2="100" y2="120" stroke-width="2"/>
+    <!-- Усики -->
+    <path d="M100 80 C90 60, 80 50, 85 45" />
+    <path d="M100 80 C110 60, 120 50, 115 45" />
+  </g>
+</svg>
+
+<!-- Нижняя бабочка -->
+<svg class="decor-bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradientBottom" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#goldGradientBottom)" stroke-width="1.8" fill="none" transform="rotate(180 100 100)">
+    <!-- Левое крыло -->
+    <path d="M100 100 C40 20, 20 80, 80 100 C40 120, 40 160, 100 100 Z" />
+    <!-- Правое крыло -->
+    <path d="M100 100 C160 20, 180 80, 120 100 C160 120, 160 160, 100 100 Z" />
+    <!-- Тело -->
+    <line x1="100" y1="80" x2="100" y2="120" stroke-width="2"/>
+    <!-- Усики -->
+    <path d="M100 80 C90 60, 80 50, 85 45" />
+    <path d="M100 80 C110 60, 120 50, 115 45" />
+  </g>
+</svg>
+
+
+
+  <header id="header" data-aos="fade-down">
+    <div class="container" data-aos="fade-down">
+      <a href="../index.html">
+        <img id="logo" src="PhotosFloors/Logo.png" alt="Oasis Logo">
+      </a>
+      <nav id="nav" data-aos="fade-down">
+        <a href="#" data-aos="fade-up">(424) 467-4534</a>
+        <a href="../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
+        <a href="../Application/Application.html" data-aos="fade-up">Application</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <main> 
+<div class="header">
+  <img src="PhotosFloors/Header.webp" alt="Headphoto" id="headphoto">
+  <h1 id="headh1">Floor Plans</h1>
+</div>
+
+<div id="texts">
+
+    <h1>Step Into<br>
+Something Special</h1>
+
+<p>
+At The Meadows Apartments, we offer the perfect balance of city excitement and serene living. Our garden-style community sits just minutes from<br>
+everything Culver City has to offer, yet provides an idyllic setting filled with lush greenery and upscale comforts.
+</p>
+
+<p>
+Our renovated one-bedroom apartments in Culver City showcase modern luxury. These homes feature fully remodeled interiors. Enjoy the serene<br>
+views from your private patio or balcony, and the ambiance of a gas or wood-burning fireplace.
+</p>
+
+<p>
+Our classic studio, one, and two-bedroom apartments in Culver City, CA offer modern conveniences and all the space you need. Feel at home with<br>
+bright, airy living areas and fully equipped kitchens with dishwashers. Ceiling fans keep the temperature comfortable year-round, and private patios or<br>
+balconies provide the perfect spot to enjoy a bit of fresh air.</p>
+
+
+
+</div>
+
+
+
+ <section class="floors-section">
+  <div class="plans-container" id="plansContainer">
+    <!-- Здесь JS будет автоматически добавлять все карточки из App.json -->
+  </div>
+</section>
+
+
+
+
+ <section id="rent-info">
+  <p>
+    Rent ranges shown represent base rent, and do not include mandatory fees for TV and Internet Services.<br>
+    Floorplans and square footages displayed are approximations, and may vary between individual units.<br>
+    Prices and special offers valid for new residents only. Pricing and availability subject to change at any time.
+  </p>
+</section>
+
+<section id="fees-section">
+  <div class="fees-content">
+    <h2>Understanding Your Fees</h2>
+    <p>
+      We want to make it easy for you to plan ahead. Below is a list of standard and special fees, which are accurate as shown but are subject to change.
+    </p>
+   <button id="feesbutton" type="button">
+  VIEW APARTMENT FEES
+  <svg class="arrow-icon" viewBox="-19.04 0 75.804 75.804" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(-831.568 -384.448)">
+      <path d="M833.068,460.252a1.5,1.5,0,0,1-1.061-2.561l33.557-33.56a2.53,2.53,0,0,0,0-3.564l-33.557-33.558a1.5,1.5,0,0,1,2.122-2.121l33.556,33.558a5.53,5.53,0,0,1,0,7.807l-33.557,33.56A1.5,1.5,0,0,1,833.068,460.252Z" />
+    </g>
+  </svg>
+</button>
+
+  </div>
+</section>
+
+<section id="tour-section">
+  <div class="tour-left">
+    <h3>Start a New Chapter In</h3>
+    <h1>Our Culver City Apartments</h1>
+    <button id="tourbutton" type="button">SCHEDULE A TOUR</button>
+  </div>
+  <div class="tour-right">
+    <p>
+      Experience the best of both worlds at The Oasis Apartments. Enjoy the convenience of a great location in Culver City, coupled with a thoughtfully curated list of community amenities. We welcome you to call The Oasis your new home. Reach out today and let’s 
+      <a href="#" id="ordertour">schedule a tour!</a>
+    </p>
+  </div>
+</section>
+
+
+</main>
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Левый блок -->
+    <div class="footer-section left">
+      <h3>Beginning</h3>
+      <p>
+        Life’s essential commodities and extra comforts are given from the get-go, providing a canvas you are free to personalize as you see fit. Your new home is only a call away!
+      </p>
+    </div>
+
+    <!-- Центральный блок -->
+    <div class="footer-section center">
+      <h3>LOCATION</h3>
+      <a href="#" class="footer-link">The Meadows</a><br>
+      <a href="#" class="footer-link">6300 Green Valley Circle</a><br>
+      <a href="#" class="footer-link">Culver City, CA 90230</a><br>
+      <p class="footer-phone">(310) 670-5983</p>
+    </div>
+
+    <!-- Правый блок -->
+    <div class="footer-section right footer-hours">
+      <h3>OFFICE HOURS</h3>
+      <ul>
+        <li>Monday: 9 AM – 6 PM</li>
+        <li>Tuesday: 10 AM – 6 PM</li>
+        <li>Wednesday: 9 AM – 6 PM</li>
+        <li>Thursday: 9 AM – 6 PM</li>
+        <li>Friday: 9 AM – 6 PM</li>
+        <li>Saturday: 9 AM – 6 PM</li>
+        <li>Sunday: 9 AM – 6 PM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="Resident_Login/Resident_Login.html">Resident Login</a>
+      <a href="Application/Application.html">Applicant Login</a>
+      <a href="Terms/Terms.html">Terms and Conditions</a>
+      <a href="Policy/Policy.html">Privacy Policy</a>
+      <a href="ContactUs/ContactUs.html">Contact Us</a>
+      <a href="Accessibility/Accessibility.html">Accessibility Statement</a>
+    </div>
+    <p class="footer-copy">
+      © 2025 Developed by razlag4
+    </p>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="JsFloors.js"></script>
+</body>
+</html>
