@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Oasis Apartments</title>
+  <meta name="creator" content="Misuvava">
+  <link rel="stylesheet" href="TourCss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
+ 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="../fonts.css">
+</head>
+<body>
+  
+<!-- Верхняя фигура -->
+<svg class="decor-top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradientTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#goldGradientTop)" stroke-width="1.8" fill="none">
+    <path d="M100 20 C80 40, 80 80, 100 100 C120 80, 120 40, 100 20 Z" />
+    <path d="M100 20 C120 40, 140 60, 100 100" />
+    <path d="M100 20 C80 40, 60 60, 100 100" />
+    <circle cx="100" cy="100" r="6" stroke-width="1" fill="url(#goldGradientTop)" />
+  </g>
+</svg>
+
+<!-- Нижняя фигура -->
+<svg class="decor-bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradientBottom" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#goldGradientBottom)" stroke-width="1.8" fill="none">
+    <path d="M100 20 C80 40, 80 80, 100 100 C120 80, 120 40, 100 20 Z" />
+    <path d="M100 20 C120 40, 140 60, 100 100" />
+    <path d="M100 20 C80 40, 60 60, 100 100" />
+    <circle cx="100" cy="100" r="6" stroke-width="1" fill="url(#goldGradientBottom)" />
+  </g>
+</svg>
+
+
+  <header id="header" data-aos="fade-down">
+    <div class="container" data-aos="fade-down">
+      <a href="../index.html">
+        <img id="logo" src="../ContactUs/PhotosContact/Logo.png" alt="Oasis Logo">
+      </a>
+      <nav id="nav" data-aos="fade-down">
+        <a href="#" data-aos="fade-up">(424) 467-4534</a>
+        <a href="../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
+        <a href="../Application/Application.html" data-aos="fade-up">Application</a>
+      </nav>
+    </div>
+  </header>
+  
+   <div class="header">
+  <img src="../ContactUs/PhotosContact/Header.png" alt="Headphoto" id="headphoto">
+  <h1>Schedule A Tour</h1>
+</div>
+
+
+   <main class="booking-section">
+    
+  <div class="booking-left">
+    
+    <h2>1. <span Id="information">TIME & DATE</span>> 2. YOUR INFORMATION</h2>
+    <h3>When would you like to visit?</h3>
+    <p class="date-range" id="dateRange"></p>
+
+    <div class="dates-grid" id="datesGrid"></div>
+
+    <p class="available-text" id="availableText"></p>
+
+    <div class="times-grid" id="timesGrid"></div>
+
+    <button class="confirm-btn" id="confirmBtn"></button>
+  </div>
+
+  <aside class="booking-right">
+    <h4>Guided Tour</h4>
+    <p>For a guided tour come and meet with the leasing agent five minut...</p>
+    <a href="#" class="read-more">READ MORE</a>
+
+    <div class="office-info">
+      <h4>Office Information</h4>
+      <p><strong>Address</strong><br>
+        The Meadows<br>
+        6300 Green Valley Circle<br>
+        Culver City, CA 90230
+      </p>
+      <p><strong>Phone</strong><br>
+        (424) 452-2963
+      </p>
+    </div>
+
+    <div class="office-hours">
+      <h4>Office Hours</h4>
+      <ul>
+        <li>Monday: 9 AM - 6 PM</li>
+        <li>Tuesday: 10 AM - 6 PM</li>
+        <li>Wednesday: 9 AM - 6 PM</li>
+        <li>Thursday: 9 AM - 6 PM</li>
+        <li>Friday: 9 AM - 6 PM</li>
+        <li>Saturday: 9 AM - 6 PM</li>
+        <li>Sunday: 9 AM - 6 PM</li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Левый блок -->
+    <div class="footer-section left">
+      <h3>Beginning</h3>
+      <p>
+        Life’s essential commodities and extra comforts are given from the get-go, providing a canvas you are free to personalize as you see fit. Your new home is only a call away!
+      </p>
+    </div>
+
+    <!-- Центральный блок -->
+    <div class="footer-section center">
+      <h3>LOCATION</h3>
+      <a href="#" class="footer-link">The Meadows</a><br>
+      <a href="#" class="footer-link">6300 Green Valley Circle</a><br>
+      <a href="#" class="footer-link">Culver City, CA 90230</a><br>
+      <p class="footer-phone">(310) 670-5983</p>
+    </div>
+
+    <!-- Правый блок -->
+    <div class="footer-section right footer-hours">
+      <h3>OFFICE HOURS</h3>
+      <ul>
+        <li>Monday: 9 AM – 6 PM</li>
+        <li>Tuesday: 10 AM – 6 PM</li>
+        <li>Wednesday: 9 AM – 6 PM</li>
+        <li>Thursday: 9 AM – 6 PM</li>
+        <li>Friday: 9 AM – 6 PM</li>
+        <li>Saturday: 9 AM – 6 PM</li>
+        <li>Sunday: 9 AM – 6 PM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="Resident_Login/Resident_Login.html">Resident Login</a>
+      <a href="Application/Application.html">Applicant Login</a>
+      <a href="Terms/Terms.html">Terms and Conditions</a>
+      <a href="Policy/Policy.html">Privacy Policy</a>
+      <a href="ContactUs/ContactUs.html">Contact Us</a>
+      <a href="Accessibility/Accessibility.html">Accessibility Statement</a>
+    </div>
+    <p class="footer-copy">
+      © 2025 Developed by razlag4
+    </p>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="TourJs.js"></script>
+</body>
+</html>

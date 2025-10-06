@@ -5,17 +5,17 @@ AOS.init({
 
 
     document.addEventListener('DOMContentLoaded', () => {
-  // Получаем id из URL
+ 
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'));
 
   if (!id) return;
 
-  // Загружаем JSON
+  N
   fetch('../App.json')
     .then(response => response.json())
     .then(data => {
-      const item = data[id - 1]; // потому что id начинается с 1, а массив с 0
+      const item = data[id - 1];
       if (!item) return;
 
       document.getElementById('detailTitle').textContent = item.title;
@@ -29,7 +29,7 @@ AOS.init({
     .catch(err => console.error('Ошибка загрузки JSON:', err));
 });
 
-    // 🦋 Реалистическое плавание фигур
+    
 class FloatingShape {
   constructor(svgTemplate) {
     this.element = svgTemplate.cloneNode(true);
