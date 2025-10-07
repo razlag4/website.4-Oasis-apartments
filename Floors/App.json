@@ -10,7 +10,7 @@
     "image": "HomeFloors/1floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -24,7 +24,7 @@
     "image": "HomeFloors/2floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee2.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -38,7 +38,7 @@
     "image": "HomeFloors/3floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee3.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -52,7 +52,7 @@
     "image": "HomeFloors/4floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee4.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -66,7 +66,7 @@
     "image": "HomeFloors/5floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee5.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -80,7 +80,7 @@
     "image": "HomeFloors/6floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee6.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -94,7 +94,7 @@
     "image": "HomeFloors/7floor.webp",
     "buttons": [
       {"text": "SEE AVAILABILITY", "url": "Buttons/buttonSee7.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   },
   {
@@ -108,7 +108,7 @@
     "image": "HomeFloors/8floor.webp",
     "buttons": [
       {"text": "GET NOTIFIED", "url": "Buttons/buttonSee8.html"},
-      {"text": "GUIDED TOUR", "url": "https://example.com"}
+      {"text": "GUIDED TOUR", "url": "Buttons/YourRooms/TourForRoom.html"}
     ]
   }
 ]

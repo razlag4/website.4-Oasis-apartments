@@ -1,0 +1,513 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nata Sans', sans-serif;
+}
+
+:root{
+  --bg-1: #0b0c0f;
+  --bg-2: #15161a;
+  --card-bg: rgba(255,255,255,0.04);
+  --accent: #00e0b7;
+  --muted: #bfc5c8;
+  --glass-border: rgba(255,255,255,0.06);
+  --shadow: 0 6px 18px rgba(2,6,23,0.5);
+  --radius: 16px;
+  --maxcontent: 1180px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #111;
+  color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+
+#header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#logo {
+  height: 190px;
+}
+
+#nav {
+  display: flex;
+  gap: 4rem;
+}
+
+#nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 525;
+  position: relative;
+  transition: 0.3s;
+}
+
+#nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
+#nav a:hover {
+  color: #d4af37;
+}
+
+#nav a:hover::after {
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#headphoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(40%);
+  display: block;
+}
+
+.header h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+#pet-policy {
+  min-height: 100vh;
+  width: 100%;
+  padding: 48px clamp(18px, 4vw, 60px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+/* controls */
+#pet-policy .controls {
+  width: 100%;
+  max-width: var(--maxcontent);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+#pet-policy .controls button {
+  background: rgba(255,255,255,0.05);
+  color: var(--muted);
+  border: 1px solid var(--glass-border);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s, background 0.2s;
+}
+
+#pet-policy .controls button:hover {
+  color: var(--accent);
+  background: rgba(0,224,183,0.08);
+}
+
+/* sections */
+#pet-policy section {
+  width: 100%;
+  max-width: var(--maxcontent);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* accent stripe */
+#pet-policy section::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:8px;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(0,224,183,0.95), rgba(0,160,140,0.95));
+}
+
+/* hover effect — только цвет и тень */
+#pet-policy section:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+  background: rgba(255,255,255,0.06);
+}
+
+/* headers */
+#pet-policy section > h2,
+#pet-policy section > h3 {
+  margin: 0;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--accent);
+  user-select: none;
+}
+
+/* chevron */
+#pet-policy section > h2::after,
+#pet-policy section > h3::after {
+  content: "▸";
+  display: inline-block;
+  transform: rotate(90deg);
+  transition: transform 0.2s, color 0.2s;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+/* content collapse */
+#pet-policy section > p,
+#pet-policy section > ul {
+  margin: 0;
+  padding: 0 22px;
+  color: #d3d6d8;
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.2s ease;
+}
+
+#pet-policy section > ul li {
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+  margin: 12px 0;
+}
+
+#pet-policy section > ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* active section */
+#pet-policy section.active > p,
+#pet-policy section.active > ul {
+  max-height: 2000px;
+  padding-top: 12px;
+  padding-bottom: 18px;
+}
+
+#pet-policy section.active > h3::after,
+#pet-policy section.active > h2::after {
+  transform: rotate(270deg);
+  color: #00ffc2;
+}
+
+/* amenities grid */
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 12px 22px 18px 22px;
+}
+
+.amenity-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.amenity-card:hover {
+  background: rgba(0,224,183,0.08);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+}
+
+/* reveal animation — лёгкая */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+
+.decor-top-left,
+.decor-bottom-right {
+  position: absolute;
+  width: 880px;
+  height: 880px;
+  opacity: 0.12;
+  pointer-events: none;
+  filter: blur(10px) drop-shadow(0 0 25px rgba(184, 156, 114, 0.3));
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Верхняя фигура */
+.decor-top-left {
+  top: -300px;
+  left: -250px;
+}
+
+/* Нижняя фигура */
+.decor-bottom-right {
+  bottom: -300px;
+  right: -250px;
+}
+
+/* Заливка путей */
+.decor-top-left path,
+.decor-bottom-right path {
+  fill: #b89c72;
+  opacity: 0.7;
+}
+
+/* Анимация "порхания" */
+@keyframes flutter {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(4deg); }
+}
+
+.decor-top-left g,
+.decor-bottom-right g {
+  animation: flutter 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Клонированные "летающие" svg */
+.floating-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+
+
+
+.footer {
+  background-color: rgba(32, 31, 31, 0.322);
+  padding: 4rem 0 2rem;
+  color: #ddd;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+}
+
+/* Контейнер трёх колонок */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+/* Левая колонка */
+.footer-section.left {
+  flex: 1;
+  margin-left: 9%;
+  max-width: 30%;
+}
+
+.footer-section.left p {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Центральная колонка */
+.footer-section.center {
+  flex: 1;
+  text-align: center;
+  max-width: 30%;
+}
+
+.footer-section.center h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-section.center .footer-link {
+  display: inline-block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section.center .footer-link:hover {
+  color: #d4af37;
+  transform: translateX(4px);
+}
+
+.footer-phone {
+  margin-top: 0.5rem;
+  color: #d4af37;
+  font-weight: 600;
+}
+
+/* Правая колонка */
+.footer-section.right {
+  flex: 1;
+  margin-right: 9%;
+  max-width: 30%;
+  text-align: right;
+}
+
+.footer-hours h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-hours li {
+  color: #aaa;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.footer-hours li:hover {
+  color: #fff;
+}
+
+/* Нижняя часть футера */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-links a {
+  color: #bbb;
+  font-size: 0.9rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-section h3 {
+  color: #d4af37;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+
+
+.footer-copy {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 800px;
+}

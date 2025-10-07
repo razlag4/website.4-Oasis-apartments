@@ -104,7 +104,7 @@ function renderWeek() {
   // ⏪ кнопка "предыдущая неделя"
   const prev = document.createElement('label');
   prev.className = 'date-item special';
-  prev.innerHTML = `<span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+  prev.innerHTML = `<span><svg width="45" height="auto" viewBox="0 0 24 24" fill="none"
      xmlns="http://www.w3.org/2000/svg">
   <path d="M15 6L9 12L15 18"
         stroke="#61C0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -161,7 +161,7 @@ function renderWeek() {
   // ⏩ кнопка "следующая неделя"
   const next = document.createElement('label');
   next.className = 'date-item special';
-  next.innerHTML = `<span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+  next.innerHTML = `<span><svg width="45" height="auto" viewBox="0 0 24 24" fill="none"
      xmlns="http://www.w3.org/2000/svg">
   <path d="M9 6L15 12L9 18"
         stroke="#61C0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -223,3 +223,223 @@ function updateConfirmText(date, time) {
 
 // --- Первичный рендер ---
 renderWeek();
+
+
+confirmBtn.addEventListener('click', () => {
+  const selectedDateInput = document.querySelector('input[name="date"]:checked');
+  const selectedTimeInput = document.querySelector('input[name="time"]:checked');
+
+  if (!selectedDateInput || !selectedTimeInput) {
+    alert('Please select a date and time first.');
+    return;
+  }
+
+  const dateObj = new Date(selectedDateInput.value);
+  const formatted = `${dateObj.toLocaleDateString('en-US', {
+    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+  })} at ${selectedTimeInput.value}`;
+
+  openFormWithSelection(formatted);
+});
+
+
+function openFormWithSelection(formatted) {
+  const bookingSection = document.querySelector('.booking-section');
+
+  // Создаём контейнер для формы (или переиспользуем существующий)
+  let formWrap = document.getElementById('formWrap');
+  if (!formWrap) {
+    formWrap = document.createElement('div');
+    formWrap.id = 'formWrap';
+    // вставляем после bookingSection
+    bookingSection.parentNode.insertBefore(formWrap, bookingSection.nextSibling);
+  }
+
+  // Вставляем ТОЛЬКО нужную форму (без <html>/<head>/<body> и без дублирования header/footer)
+  formWrap.innerHTML = `
+    <div id="YourSelect">
+      <p id="selected" class="required-note">You selected ${formatted}</p>
+      <button id="changeselect" type="button" class="btn-link">CHANGE</button>
+    </div>
+
+    <section class="register-section" data-aos="fade-up">
+      <div class="form-container">
+        <p class="required-note" id="requiredNote">IMPORTANT: Please enter your name exactly as it appears on your government-issued photo ID</p>
+
+        <h1>Personal Information</h1>
+        <form id="contactForm">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="input-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="sms" name="sms" checked>
+            <label for="sms">Yes, I'd be happy to receive text messages!</label>
+          </div>
+
+          <div id="hiddenText" class="hidden" style="margin-bottom:12px;">
+            <p style="font-size:13px; color:#bbb;">
+              By checking this box, you agree to receive marketing text messages from The Oasis Management.
+              You may unsubscribe at any time. Msg and Data rates may apply. See Privacy Policy and Terms.
+            </p>
+          </div>
+
+          <div class="input-group">
+            <label for="moveInDate">Move-In Date</label>
+            <input type="date" id="moveInDate" name="moveInDate">
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message*</label>
+            <textarea id="message" name="message" required></textarea>
+            <p class="error-message" id="error-message" style="display:none;">Please enter a message</p>
+          </div>
+
+          <p class="policy-text">
+            <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and 
+            <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+          </p>
+
+          <button id="submitBtn" type="submit" class="submit-btn">Send My Message</button>
+        </form>
+      </div>
+    </section>
+  `;
+
+  // Скрываем секцию выбора и показываем форму
+  bookingSection.style.display = 'none';
+  formWrap.style.display = 'block';
+
+  // ---- привязываем обработчики к вставленным элементам ----
+  const changeBtn = document.getElementById('changeselect');
+  changeBtn.addEventListener('click', () => {
+    formWrap.style.display = 'none';
+    bookingSection.style.display = '';
+    // оставляем renderWeek как есть — элементы сохранены
+  });
+
+  const toggleBtn = document.getElementById('toggleBtn');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const hidden = document.getElementById('hiddenText');
+      if (!hidden) return;
+      hidden.classList.toggle('hidden');
+      toggleBtn.textContent = hidden.classList.contains('hidden') ? 'Show more' : 'Show less';
+    });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // простая валидация сообщения
+      const msg = document.getElementById('message').value.trim();
+      if (!msg) {
+        document.getElementById('error-message').style.display = 'block';
+        return;
+      }
+      // Здесь можно отправить форму через fetch/ajax или показать подтверждение
+      alert('Спасибо! Ваша заявка отправлена.\\nВы выбрали: ' + formatted);
+      // при желании — очистить форму или перенаправить
+      contactForm.reset();
+    });
+  }
+}
+
+
+const toggleBtn = document.getElementById('toggleBtn');
+  const hiddenText = document.getElementById('hiddenText');
+
+  toggleBtn.addEventListener('click', () => {
+    hiddenText.classList.toggle('show');
+    if (hiddenText.classList.contains('show')) {
+      toggleBtn.textContent = 'Show less';
+    } else {
+      toggleBtn.textContent = 'Show more';
+    }
+  });
+
+
+  const dropdownBtn = document.getElementById('dropdownBtn');
+  const dropdownContent = document.getElementById('dropdownContent');
+
+  dropdownBtn.addEventListener('click', () => {
+    dropdownContent.classList.toggle('show');
+  });
+
+  // Закрытие при клике вне
+  document.addEventListener('click', (e) => {
+    if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+      dropdownContent.classList.remove('show');
+    }
+  });
+
+  // Пример: выбор элемента из списка
+  dropdownContent.querySelectorAll('div').forEach(item => {
+    item.addEventListener('click', () => {
+      dropdownBtn.textContent = item.textContent + ' ▾';
+      dropdownContent.classList.remove('show');
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".form-container"); // форма
+  const inputs = form.querySelectorAll("input[required], textarea[required], input[type='email'], input[type='tel']");
+
+  form.querySelector(".submit-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    inputs.forEach(input => {
+      const group = input.closest(".input-group");
+      let errorEl = group.querySelector(".error-message");
+
+      if (!errorEl) {
+        errorEl = document.createElement("p");
+        errorEl.classList.add("error-message");
+        group.appendChild(errorEl);
+      }
+
+      // Проверка
+      if (!input.value.trim()) {
+        group.classList.add("error");
+        errorEl.textContent = "This field is required";
+        isValid = false;
+      } else if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+        group.classList.add("error");
+        errorEl.textContent = "Please enter a valid email";
+        isValid = false;
+      } else if (input.type === "tel" && !/^[0-9\-\+\(\)\s]{7,}$/.test(input.value)) {
+        group.classList.add("error");
+        errorEl.textContent = "Please enter a valid phone number";
+        isValid = false;
+      } else {
+        group.classList.remove("error");
+        errorEl.textContent = "";
+      }
+    });
+
+    if (isValid) {
+      form.submit();
+    }
+  });
+});
+
+

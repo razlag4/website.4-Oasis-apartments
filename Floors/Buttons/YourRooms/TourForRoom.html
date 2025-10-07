@@ -4,30 +4,19 @@
   <meta charset="UTF-8">
   <title>Oasis Apartments</title>
   <meta name="creator" content="Misuvava">
-  <link rel="stylesheet" href="CssApp/ApplicationCss.css">
+  <link rel="stylesheet" href="../../../Tour/TourCss.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
+ 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-  <link rel="stylesheet" href="../fonts.css">
+  <link rel="stylesheet" href="../../../fonts.css">
 </head>
 <body>
-  <header id="header" data-aos="fade-down">
-    <div class="container" data-aos="fade-down">
-      <a href="../index.html">
-        <img id="logo" src="../ContactUs/PhotosContact/Logo.png" alt="Oasis Logo">
-      </a>
-      <nav id="nav" data-aos="fade-down">
-        <a href="#" data-aos="fade-up">(424) 467-4534</a>
-        <a href="../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
-        <a href="Application.html" data-aos="fade-up">Application</a>
-      </nav>
-    </div>
-  </header>
-  <!-- Верхняя фигура -->
+  
+<!-- Верхняя фигура -->
 <svg class="decor-top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="goldGradientTop" x1="0" y1="0" x2="1" y2="1">
@@ -60,77 +49,74 @@
 </svg>
 
 
-  <main> 
-<div class="header">
-  <img src="PhotosApp/Header.png" alt="Headphoto" id="headphoto">
-  <h1>Online Leasing</h1>
-</div>
-
-<section class="register-section">
-  <div class="register-container">
-
-    <div class="register-left">
-      <h1>Welcome Back</h1>
-      <p class="subtext">
-        If you already have a RentCafe account from another property,<br>
-        please log in instead of registering again.
-      </p>
-
-      <div class="input-group">
-        <input id="email" placeholder="Email" type="email" required>
-      </div>
-
-      <div class="input-group">
-        <input id="Pass" type="password" placeholder="Password" required>
-      </div>
-
-     <div class="links">
-  <a href="#" class="forgot-link">Forgot password?</a>
-</div>
-
-<script>
-  document.querySelector('.forgot-link').addEventListener('click', e => {
-    e.preventDefault();
-    const from = encodeURIComponent(window.location.href);
-    window.location.href = `../ForgotPass/ForgotPass.html?from=${from}`;
-  });
-</script>
-
-      <button type="submit" id="login-btn">Login</button>
-
-      <div class="trust-text">
-        Secure & Encrypted • 24/7 Access • Fast Processing
-      </div>
-    </div>
-
-    <div class="register-right">
-      <h2>New to Oasis Apartments?</h2>
-      <p class="subtext">Create your free account and enjoy exclusive benefits:</p>
-
-      <ul class="checklist">
-        <li>✔ Save your application and return anytime to continue.</li>
-        <li>✔ Track the status of your applications in real time.</li>
-        <li>✔ Use your account for multiple properties seamlessly.</li>
-      </ul>
-
-      <a href="../Register/Regirster.html" class="register-now">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="8,4 20,12 8,20"/>
-        </svg>
-        Register Now
+  <header id="header" data-aos="fade-down">
+    <div class="container" data-aos="fade-down">
+      <a href="../index.html">
+        <img id="logo" src="../../../ContactUs/PhotosContact/Logo.png" alt="Oasis Logo">
       </a>
+      <nav id="nav" data-aos="fade-down">
+        <a href="#" data-aos="fade-up">(424) 467-4534</a>
+        <a href="../../../ContactUs/ContactUs.html" data-aos="fade-up">Contact Us</a>
+        <a href="../../../Application/Application.html" data-aos="fade-up">Application</a>
+      </nav>
+    </div>
+  </header>
+  
+   <div class="header">
+  <img src="../../../ContactUs/PhotosContact/Header.png" alt="Headphoto" id="headphoto">
+  <h1>Schedule A Tour</h1>
+</div>
 
-      <div class="highlight-box">
-        <h3>Why Register?</h3>
-        <p>Get priority processing, exclusive leasing offers, and a seamless application experience.</p>
-      </div>
+
+   <main class="booking-section">
+    
+  <div class="booking-left">
+    
+    <h2>1. <span Id="information">TIME & DATE</span> >  YOUR INFORMATION</h2>
+    <h3>When would you like to visit?</h3>
+    <p class="date-range" id="dateRange"></p>
+
+    <div class="dates-grid" id="datesGrid"></div>
+
+    <p class="available-text" id="availableText"></p>
+
+    <div class="times-grid" id="timesGrid"></div>
+
+    <button class="confirm-btn" id="confirmBtn"></button>
+  </div>
+
+  <aside class="booking-right">
+    <h4>Guided Tour</h4>
+    <p>For a guided tour come and meet with the leasing agent five minut...</p>
+    <a href="#" class="read-more">READ MORE</a>
+
+    <div class="office-info">
+      <h4>Office Information</h4>
+      <p><strong>Address</strong><br>
+        The Meadows<br>
+        6300 Green Valley Circle<br>
+        Culver City, CA 90230
+      </p>
+      <p><strong>Phone</strong><br>
+        (424) 452-2963
+      </p>
     </div>
 
-  </div>
-</section>
-
-
+    <div class="office-hours">
+      <h4>Office Hours</h4>
+      <ul>
+        <li>Monday: 9 AM - 6 PM</li>
+        <li>Tuesday: 10 AM - 6 PM</li>
+        <li>Wednesday: 9 AM - 6 PM</li>
+        <li>Thursday: 9 AM - 6 PM</li>
+        <li>Friday: 9 AM - 6 PM</li>
+        <li>Saturday: 9 AM - 6 PM</li>
+        <li>Sunday: 9 AM - 6 PM</li>
+      </ul>
+    </div>
+  </aside>
 </main>
+
 
 <footer class="footer">
   <div class="footer-container">
@@ -168,20 +154,20 @@
 
   <div class="footer-bottom">
     <div class="footer-links">
-      <a href="../Resident_Login/Resident_Login.html">Resident Login</a>
-      <a href="../Application/Application.html">Applicant Login</a>
-      <a href="../Terms/Terms.html">Terms and Conditions</a>
-      <a href="../Policy/Policy.html">Privacy Policy</a>
-      <a href="../ContactUs/ContactUs.html">Contact Us</a>
-      <a href="../Accessibility/Accessibility.html">Accessibility Statement</a>
+      <a href="Resident_Login/Resident_Login.html">Resident Login</a>
+      <a href="Application/Application.html">Applicant Login</a>
+      <a href="Terms/Terms.html">Terms and Conditions</a>
+      <a href="Policy/Policy.html">Privacy Policy</a>
+      <a href="ContactUs/ContactUs.html">Contact Us</a>
+      <a href="Accessibility/Accessibility.html">Accessibility Statement</a>
     </div>
     <p class="footer-copy">
       © 2025 Developed by razlag4
     </p>
   </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="../JsAll.js"></script>
-</body>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="../../../Tour/TourJs.js"></script>
+</body>
 </html>
