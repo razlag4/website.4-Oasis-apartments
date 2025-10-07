@@ -297,7 +297,7 @@ function openFormWithSelection(formatted) {
           <div id="hiddenText" class="hidden" style="margin-bottom:12px;">
             <p style="font-size:13px; color:#bbb;">
               By checking this box, you agree to receive marketing text messages from The Oasis Management.
-              You may unsubscribe at any time. Msg and Data rates may apply. See Privacy Policy and Terms.
+              You may unsubscribe at any time. Msg and Data rates may apply. See <a class="policy-text" href="../Policy/Policy.html">Privacy Policy</a> and <a class="policy-text" href="../Terms/Terms.html">Terms.</a>
             </p>
           </div>
 
@@ -313,8 +313,8 @@ function openFormWithSelection(formatted) {
           </div>
 
           <p class="policy-text">
-            <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and 
-            <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+            <a href="../Policy/Policy.html" target="_blank">Privacy Policy</a> and 
+            <a href="../Terms/Terms.html" target="_blank">Terms of Service</a> apply.
           </p>
 
           <button id="submitBtn" type="submit" class="submit-btn">Send My Message</button>

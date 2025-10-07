@@ -579,6 +579,19 @@ textarea {
   text-decoration: underline;
 }
 
+.policy-text,
+.policy-text a {
+  font-size: 12px;
+  opacity: 0.8;
+  color: #4da3ff;
+  text-decoration: none;
+}
+
+.policy-text a:hover {
+  text-decoration: underline;
+}
+
+
 .submit-btn {
   width: 100%;
   padding: 14px;
